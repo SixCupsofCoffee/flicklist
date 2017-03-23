@@ -30,6 +30,7 @@ function discoverMovies(callback) {
 			// TODO 2
 			// update the model, setting its .browseItems property equal to the movies we recieved in the response
 
+            model.browseItems = response.results;
 			// invoke the callback function that was passed in.
 			callback();
 		}
@@ -50,8 +51,8 @@ function render() {
 
   // for each movie on the current browse list,
   model.browseItems.forEach(function(movie) {
-		// TODO 3
-		// insert a list item into the <ul> in the browse section
+
+        $('#browse').append('<li>' + movie.original_title + '</li>');
 
 		// TODO 4
 		// the list item should include a button that says "Add to Watchlist"
