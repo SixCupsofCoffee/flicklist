@@ -52,13 +52,23 @@ function render() {
   // for each movie on the current browse list,
   model.browseItems.forEach(function(movie) {
 
-        $('#browse').append('<li>' + movie.original_title + '</li>');
+        movieTitle = '<li>' + movie.original_title;
+        movieButton = '<input type="button" class="add" value = "Add to Watchlist"></li>';
 
-		// TODO 4
-		// the list item should include a button that says "Add to Watchlist"
+        $('movieButton').on("click", function() {
+            model.watchlistItems.push(movie);
+        });
+        console.log(model.watchlistItems);
 
-		// TODO 5
-		// when the button is clicked, this movie should be added to the model's watchlist and render() should be called again
+        $('#browse').append(movieTitle + movieButton);
+
+        // $('#browse').append('<li id="'+ movie.id +'">' + movie.original_title + ' <input type="button" id="add" value="Add to Watchlist"></li>');
+        //
+		// // TODO 5
+		// // when the button is clicked, this movie should be added to the model's watchlist and render() should be called again
+        // $('#add').on("click", function() {
+        //
+        // });
   });
 
 }
