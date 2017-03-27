@@ -14,7 +14,7 @@ var model = {
 
 var api = {
   root: "https://api.themoviedb.org/3",
-  token: "" // TODO 0 add your api key
+  token: "" // TODO 0 add your api key (removed for repo push)
 }
 
 
@@ -48,10 +48,26 @@ function discoverMovies(callback) {
 function searchMovies(searchTerm, callback) {
   console.log("searching for movies with '" + searchTerm + "' in their title...");
 
-  // TODO 9
+  // TODO 9 COMPLETED
   // implement this function as described in the comment above
   // you can use the body of discoverMovies as a jumping off point
+  $.ajax({
+      url: api.root + "/search/movie",
+      data: {
+          api_key: api.token,
+          query: searchTerm
+      },
+      success: function(response) {
+          model.browseItems.push(response.results[0]);
+          console.log("The array is now "+ model.browseItems.length + " items long.");
+          callback();
+      }
+    //   error: function(searchTerm) {
+    //       alert("The movie "+ searchTerm + " wasn't found. Sorry!");
+    //       callback();
+    //   }
 
+  });
 
 }
 
