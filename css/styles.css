@@ -7,17 +7,23 @@ For CSS stuff, make good use of the Chrome Developer Tools:
 
 
 /*
-TODO 4
+TODO 4 COMPLETED
 add a selector for elements with class "item-watchlist"
 give these elements a display property of inline-block
 and then style them as shown in the example (padding, margin, background, etc)
 */
-
+.item-watchlist {
+    display: inline-block;
+    color: white;
+    padding: 60px;
+    margin: 10px;
+    background-color: orange;
+}
 
 /*
-TODO 5 
+TODO 5
 Make all elements have color: gray; by default
-Hint: just apply the style using a parent selector, and then all 
+Hint: just apply the style using a parent selector, and then all
 descendent elements will automatically inherit the same styles
 */
 
@@ -29,7 +35,7 @@ descendent elements will automatically inherit the same styles
 }
 
 #section-browse {
-	background: #eee;	
+	background: #eee;
 }
 
 #section-browse li {

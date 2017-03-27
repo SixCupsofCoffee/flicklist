@@ -14,7 +14,7 @@ var model = {
 
 var api = {
   root: "https://api.themoviedb.org/3",
-  token: "8e888fa39ec243e662e1fb738c42ae99" // TODO 0 add your api key
+  token: "" // TODO 0 add your api key
 }
 
 
@@ -39,7 +39,7 @@ function discoverMovies(callback) {
 
 
 /**
- * Makes an AJAX request to the /search/movie endpoint of the API, using the 
+ * Makes an AJAX request to the /search/movie endpoint of the API, using the
  * query string that was passed in
  *
  * if successful, updates model.browseItems appropriately and then invokes
@@ -70,28 +70,31 @@ function render() {
     var title = $("<p></p>").text(movie.original_title);
     var itemView = $("<li></li>")
       .append(title)
-      // TODO 3
+      // TODO 3 COMPLETED
       // give itemView a class attribute of "item-watchlist"
-
+    itemView.attr("class", "item-watchlist");
     $("#section-watchlist ul").append(itemView);
   });
 
   // insert browse items
   model.browseItems.forEach(function(movie) {
     var title = $("<h4></h4>").text(movie.original_title);
+    var overview = $("<p>").text(movie.overview);
     var button = $("<button></button>")
       .text("Add to Watchlist")
       .click(function() {
         model.watchlistItems.push(movie);
         render();
       });
-      // TODO 2
+      // TODO 2 COMPLETED
       // the button should be disabled if this movie is already in
       // the user's watchlist
       // see jQuery .prop() and Array.indexOf()
+    if (model.watchlistItems.indexOf(movie) > -1) {
+        button.prop("disabled", true);
+    };
 
-
-    // TODO 1
+    // TODO 1 COMPLETED
     // create a paragraph containing the movie object's .overview value
     // then, in the code block below,
     // append the paragraph in between the title and the button
@@ -101,14 +104,11 @@ function render() {
     var itemView = $("<li></li>")
       .append($("<hr/>"))
       .append(title)
+      .append(overview)
       .append(button);
 
     // append the itemView to the list
     $("#section-browse ul").append(itemView);
   });
-  
+
 }
-
-
-
-
