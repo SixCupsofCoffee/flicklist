@@ -21,12 +21,15 @@ and then style them as shown in the example (padding, margin, background, etc)
 }
 
 /*
-TODO 5
+TODO 5 COMPLETED
 Make all elements have color: gray; by default
 Hint: just apply the style using a parent selector, and then all
 descendent elements will automatically inherit the same styles
 */
 
+body {
+    color: gray;
+}
 
 #big-header {
 	background: gray;
