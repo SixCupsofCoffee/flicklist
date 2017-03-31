@@ -97,10 +97,8 @@ function render() {
     // add a poster image and append it inside the
     // panel body above the button
     var posterImage = $('<img>')
-        .attr('src', "http://image.tmdb.org/t/p/w300/" + movie.poster_path);
-
-    var panelDefault = $('<div></div>')
-    .attr("class", "panel panel-default");
+        .attr('src', "http://image.tmdb.org/t/p/w300/" + movie.poster_path)
+        .attr("class", "img-responsive");
 
     var panelHeading = $('<div></div>')
     .attr("class", "panel-heading")
@@ -114,9 +112,9 @@ function render() {
     // TODO 2g COMPLETED
     // re-implement the li as a bootstrap panel with a heading and a body
     var itemView = $('<li></li>')
-      .append(panelDefault)
       .append(panelHeading)
-      .append(panelBody);
+      .append(panelBody)
+      .attr("class", "panel panel-default");
 
     $("#section-watchlist ul").append(itemView);
   });
