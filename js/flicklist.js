@@ -76,8 +76,7 @@ function render() {
 
   // insert watchlist items
   model.watchlistItems.forEach(function(movie) {
-    var title = $("<h6></h6>").text(movie.original_title)
-        .attr("class", "panel-heading");
+    var title = $("<h6></h6>").text(movie.original_title);
 
     // TODO 1 COMPLETED
     // add an "I watched it" button and append it below the title
@@ -98,16 +97,18 @@ function render() {
     // add a poster image and append it inside the
     // panel body above the button
     var posterImage = $('<img>')
-        .attr('src', "http://image.tmdb.org/t/p/w300/" + movie.poster_path)
-        .attr("class", "panel panel-body img-responsive");
+        .attr('src', "http://image.tmdb.org/t/p/w300/" + movie.poster_path);
+
+    var panelDefault = $('<div></div>').attr("class", "panel panel-default");
+    var panelHeading = $('<div></div>').attr("class", "panel-heading");
+    var panelBody = $('<div></div>').attr("class", "panel-body");
 
     // TODO 2g COMPLETED
     // re-implement the li as a bootstrap panel with a heading and a body
     var itemView = $('<li></li>')
       .append(title)
       .append(posterImage)
-      .append(button)
-      .attr("class", "panel panel-default");
+      .append(button);
 
     $("#section-watchlist ul").append(itemView);
   });
