@@ -99,16 +99,24 @@ function render() {
     var posterImage = $('<img>')
         .attr('src', "http://image.tmdb.org/t/p/w300/" + movie.poster_path);
 
-    var panelDefault = $('<div></div>').attr("class", "panel panel-default");
-    var panelHeading = $('<div></div>').attr("class", "panel-heading");
-    var panelBody = $('<div></div>').attr("class", "panel-body");
+    var panelDefault = $('<div></div>')
+    .attr("class", "panel panel-default");
+
+    var panelHeading = $('<div></div>')
+    .attr("class", "panel-heading")
+    .append(title);
+
+    var panelBody = $('<div></div>')
+    .attr("class", "panel-body")
+    .append(posterImage)
+    .append(button);
 
     // TODO 2g COMPLETED
     // re-implement the li as a bootstrap panel with a heading and a body
     var itemView = $('<li></li>')
-      .append(title)
-      .append(posterImage)
-      .append(button);
+      .append(panelDefault)
+      .append(panelHeading)
+      .append(panelBody);
 
     $("#section-watchlist ul").append(itemView);
   });
